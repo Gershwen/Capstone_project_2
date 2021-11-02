@@ -4,6 +4,12 @@ const cartItemsEl = document.querySelector(".cart-items");
 const subtotalEl = document.querySelector(".subtotal");
 const totalItemsInCartEl = document.querySelector(".total-items-in-cart");
 const couponCode = document.getElementById("coupon");
+const discountEl = document.getElementById("discount");
+const discountedTotalEl = document.getElementById("discountedTotal");
+const vatEl = document.getElementById("vat");
+const totalEl = document.getElementById("total");
+const deliveryFee = document.getElementById("delivery");
+const finalTotalEl = document.getElementById("finalTotal");
 
 //RENDER PRODUCTS
 function renderProducts() {
@@ -70,34 +76,71 @@ function updateCart() {
 //calculate and render subtotal
 
 function renderSubTotal() {
-  let totalPrice = 0;
-  let totalItems = 0;
+  if (subtotalEl) {
+    //CHECKING IF THE SUBTOTAL ELEMENT IS PRESENT
 
-  cart.forEach((item) => {
-    totalPrice += item.price * item.numberOfUnits;
-    totalItems += item.numberOfUnits;
-  });
+    let totalPrice;
 
-  let plusValueAddedtax = totalPrice * 0.15; //CALCULATING VALUE ADDED TAX OF 15%;
+    let totalItems = 0;
 
-  totalPrice = JSON.parse(localStorage.getItem("TOTALPRICE")); //GETS TOTALS FROM DELIVERY AND DISCOUNT FUNCTION
+    if (totalItems > 0) {
+      totalPrice = JSON.parse(localStorage.getItem("TOTALPRICE")); //GETS TOTALS FROM DELIVERY AND DISCOUNT FUNCTION
+    } else {
+      totalPrice = 0;
+    }
 
-  totalPrice = totalPrice + plusValueAddedtax; //ADD VAT TO TOTAL PRICE
+    cart.forEach((item) => {
+      totalPrice += item.price * item.numberOfUnits;
+      totalItems += item.numberOfUnits;
+    });
 
-  subtotalEl.innerHTML = `Subtotal (${totalItems} items): R${totalPrice.toFixed(
-    2
-  )}`;
+    subtotalEl.innerHTML = `Subtotal (${totalItems} items): R${totalPrice.toFixed(
+      2
+    )}`;
 
-  totalItemsInCartEl.innerHTML = totalItems;
-  alert("Your current total is R " + totalPrice.toFixed(2)); //ALERT USER THE TOTAL PRICE EACH TIME A PRODUCT IS ADDED
+    localStorage.setItem("TOTALPRICE", totalPrice); //STORING total price INSIDE LOCALSTORAGE
 
-  localStorage.setItem("TOTALPRICE", totalPrice); //STORING total price INSIDE LOCALSTORAGE
+    totalItemsInCartEl.innerHTML = totalItems;
+
+    alert("Your current total is R " + totalPrice.toFixed(2)); //ALERT USER THE TOTAL PRICE EACH TIME A PRODUCT IS ADDED
+  }
+}
+
+//ADD DISCOUNT COUPON
+
+function addDiscountCoupon() {
+  let totalPrice = JSON.parse(localStorage.getItem("TOTALPRICE"));
+
+  let discount = (totalPrice * 10) / 100; //10% discount;
+
+  discountEl.innerHTML = `Discount: R${discount.toFixed(2)}`;
+
+  discount = totalPrice - discount;
+
+  discountedTotalEl.innerHTML = `Discounted Total: R${discount.toFixed(2)}`;
+
+  let coupon = 123456;
+
+  if (Number(couponCode.value) === coupon) {
+    totalPrice = discount;
+  } else {
+    alert("Coupon code was incorrect!. Please try again");
+  }
+
+  let plusValueAddedtax = discount * 0.15; //CALCULATING VALUE ADDED TAX OF 15%;
+
+  vatEl.innerHTML = `VAT: R${plusValueAddedtax.toFixed(2)}`; //DISPLAY VAT IN SHOPPING CART
+
+  totalPrice = discount + plusValueAddedtax; //ADD VAT TO TOTAL PRICE
+
+  totalEl.innerHTML = `Total: R${totalPrice.toFixed(2)}`;
+
+  localStorage.setItem("TOTALPRICE", totalPrice); //ADDING TOTAL OF PREVIOUS TOTAL MINUS DISCOUNT
 }
 
 //SELECTION DELIVERY OPTION
 
 function handleChange(selection) {
-  let totalPrice = JSON.parse(localStorage.getItem("TOTALPRICE"));
   let deliveryOpt;
 
   if (selection == "express") {
@@ -108,29 +151,29 @@ function handleChange(selection) {
     deliveryOpt = 0;
   }
 
+  deliveryFee.innerHTML = `Delivery fee: R${deliveryOpt}`; //DISPLAYS DELIVERY FEE IN SHOPPING CART
+
+  let totalPrice = JSON.parse(localStorage.getItem("TOTALPRICE")); //GETTING ADJUST TOTAL WHICH INCLUDES VAT AND DISCOUNT
+
   totalPrice = totalPrice + deliveryOpt;
 
-  alert(totalPrice);
+  finalTotalEl.innerHTML = `Total due including delivery: R${totalPrice.toFixed(
+    2
+  )}`; //DISPLAYING FINAL TOTAL WHICH INCLUDES THE DISCOUNT, VAT AND DELIVERY COSTS
 
-  localStorage.setItem("TOTALPRICE", totalPrice);
+  localStorage.setItem("TOTALPRICE", totalPrice); //STORES THE FINAL TOTAL IN TOTALPRICE
 }
 
-//ADD DISCOUNT COUPON
+// confirm order function
 
-function addDiscountCoupon() {
-  let totalPrice = JSON.parse(localStorage.getItem("TOTALPRICE"));
+function confirmOrder() {
+  let referenceNum = Math.random() * 1000;
 
-  let coupon = 123456;
-  let discount = (totalPrice * 10) / 100; //10% discount
-  discount = totalPrice - discount;
+  alert(
+    "Your order was successful!. Your reference number is " + referenceNum + "."
+  );
 
-  if (Number(couponCode.value) === coupon) {
-    totalPrice = discount;
-
-    alert(totalPrice);
-  } else {
-    alert("Coupon code was incorrect!. Please try again");
-  }
+  totalPrice = 0; //CLEARS TOTAL PRICE ON ORDER CONFIRMATION
 
   localStorage.setItem("TOTALPRICE", totalPrice);
 }
@@ -200,12 +243,3 @@ $("img").hover(function slideAround() {
     .animate({ right: "50px" }, 1000);
   setInterval(slideAround, 2000);
 });
-
-// confirm order function
-
-function confirmOrder() {
-  let referenceNum = Math.random() * 1000;
-  alert(
-    "Your order was successful!. Your reference number is " + referenceNum + "."
-  );
-}

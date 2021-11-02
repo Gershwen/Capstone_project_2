@@ -56,7 +56,14 @@
             <!-- render cart items here -->
         </div>
 
-        <form action="">
+        <form action="javascript:void(0);">
+            <label for="coupon">Discount code</label>
+            <input id="coupon" name="coupon" type="text" placeholder="type in coupon number">
+
+            <button class="btn btn-warning" onclick="addDiscountCoupon()">Add discount</button>
+        </form>
+
+        <form action="javascript:void(0);">
             <label for="delivery">Choose your delivery option:</label>
             <select onchange="handleChange(this.value)" name="delivery" >
                 <option value="express">Express delivery - R100</option>
@@ -65,17 +72,16 @@
             </select>
         </form>
 
-        <form>
-            <label for="coupon">Discount code</label>
-            <input id="coupon" name="coupon" type="text" placeholder="type in coupon number">
 
-            <button class="btn btn-warning" onclick="addDiscountCoupon()">Add discount</button>
-        </form>
 
         <div class="cart-footer">
-            <div class="subtotal">
-
-            </div>
+            <div class="subtotal"></div>
+            <div id="discount"></div>
+            <div id="discountedTotal"></div>
+            <div id="vat"></div>
+            <div id="total"></div>
+            <div id="delivery"></div>
+            <div id="finalTotal"></div>
 
             <button onclick="confirmOrder()" id="confirmOrderButton" class="btn btn-warning">Confirm order</button>
 
