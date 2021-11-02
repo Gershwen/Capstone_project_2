@@ -2,10 +2,10 @@
 
 Table of contents
 -----------------
-## Description
-## Instalation
-## Usage
-## Credits
+1. Description
+2. Instalation
+3. Usage
+4. Credits
 
 ## Description
 Online store for a wine farm who now offers delivery services and online purchases. 
