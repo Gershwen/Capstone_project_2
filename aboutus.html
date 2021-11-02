@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Added bootstrap for main styles -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+    <!-- external stylesheet to customise any bootstrap styling. -->
+    <link rel="stylesheet" href="myStyles.css">
+
+    <!-- jquery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+
+    <title>The Winery</title>
+</head>
+
+<body onload="myLoad()" class="homepage-body">
+
+    <nav class="navbar navbar-expand-lg">
+
+
+
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="about-nav-link-container collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutus.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Catalogue.html">Catalogue</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shipping.html">Shipping</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-danger" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <h1 class="about-us-heading">about us</h1>
+
+    <p class="about-us-paragraph">Hi and welcome to the winery. We are a local business dealing with only the highest
+        quality wine ranges aiming to meet the demand of the communities we serve. We were established in 1975 and to
+        this day we pride ourselves on excellent wines at even better prices.</p>
+
+    <section class="testimonial-section">
+        <h2>Testimonials</h2>
+        <div class="henry-container">
+            <img class="testimonial-img-henry"
+                src="https://media.istockphoto.com/photos/living-that-urban-life-picture-id1165314750?b=1&k=20&m=1165314750&s=170667a&w=0&h=mS8qGVV2GWQ9S_9kNsBTg3ZTN5nCOfByLQkzqxOqPuQ="
+                alt="Henry">
+            <p class="testimonial-message-henry">Great wine and great time on delivery. 100% recommend! - Henry</p>
+        </div>
+
+        <div class="sarah-container">
+            <img class="testimonial-img-sarah"
+                src="https://media.istockphoto.com/photos/learn-to-love-yourself-first-picture-id1291208214?k=20&m=1291208214&s=612x612&w=0&h=WbHbwklzP81iAWV0dPlQWuBLxnbqJFk81a9OZG6qvSM="
+                alt="Sarah">
+            <p class="testimonial-message-sarah">Wonderful selection of wine at an awesome price. - Sarah</p>
+
+        </div>
+    </section>
+
+    <script src="./products.js"></script>
+    <script src="index.js" type="text/javascript"></script>
+
+</body>
+
+</html>
+
+<!-- image resources: 
+Unplash
+iStock -->
