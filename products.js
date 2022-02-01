@@ -9,9 +9,9 @@ const products = [
     },
     {
         id: 1,
-        name: "Kumala Cape Medium Sweet",
+        name: "Sweet Red Wine",
         price: 59.99,
-        description: "Kumala Cape Medium Sweet Red is an intense ruby red coloured wine with a bouquet of plums and red berry fruit. Savor the delicate, sweet aroma reminiscent of the taste of dried fruits.",
+        description: "Apart from being higher in residual sugar content, sweet red wines usually have lower alcohol content. These bottles are flavourful and complex. Also, sweet red wines unlike their dry counterparts don't have the full tannic flavors of traditional red wines like Cabernet Franc or Merlot.",
         imgSrc: "./images/sweetred.jpg",
         instock: 8,
     },
