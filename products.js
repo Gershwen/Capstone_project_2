@@ -9,10 +9,10 @@ const products = [
     },
     {
         id: 1,
-        name: "Cape Sweet red",
+        name: "Kumala Cape Medium Sweet",
         price: 59.99,
-        description: "The Cape Winds Natural Sweet Red is a sweet red wine, blended from red cultivars and grape juice. A fragrant, ruby-red wine with flavours of ripe plums, strawberries, and exotic spice.",
-        imgSrc: "./images/capesweetred.jpg",
+        description: "Kumala Cape Medium Sweet Red is an intense ruby red coloured wine with a bouquet of plums and red berry fruit. Savor the delicate, sweet aroma reminiscent of the taste of dried fruits.",
+        imgSrc: "./images/sweetred.jpg",
         instock: 8,
     },
     {
