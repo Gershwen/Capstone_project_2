@@ -12,7 +12,7 @@ const products = [
         name: "Cape Sweet red",
         price: 59.99,
         description: "The Cape Winds Natural Sweet Red is a sweet red wine, blended from red cultivars and grape juice. A fragrant, ruby-red wine with flavours of ripe plums, strawberries, and exotic spice.",
-        imgSrc: "./images/capesweetred.png",
+        imgSrc: "./images/capesweetred.jpg",
         instock: 8,
     },
     {
@@ -20,7 +20,7 @@ const products = [
         name: "Sauvignon Blanc",
         price: 79.99,
         description: "Sauvignon Blanc is a white wine grape variety that is most often used to produce dry white wines. Light and refreshing, its unique in that its flavor sets it apart from most other white wine grape varieties.",
-        imgSrc: "https://liquorcity.co.za/images/thumbs/0001703_kwv-classic-collection-sauvignon-blanc-750ml_600.jpeg",
+        imgSrc: "./images/bellevue-sauvignon-blanc-2019.jpg",
         instock: 3,
     },
     {
