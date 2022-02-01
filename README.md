@@ -8,7 +8,7 @@ Table of contents
 4. Credits
 
 ## Description
-Online store for a wine farm who now offers delivery services and online purchases. 
+Example of an online store for a wine farm who now offers delivery services and online purchases. 
 
 ## Instalation
 To install locally follow the below steps: 
