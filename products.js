@@ -12,7 +12,7 @@ const products = [
         name: "Cape Sweet red",
         price: 59.99,
         description: "The Cape Winds Natural Sweet Red is a sweet red wine, blended from red cultivars and grape juice. A fragrant, ruby-red wine with flavours of ripe plums, strawberries, and exotic spice.",
-        imgSrc: "https://images.woolworthsstatic.co.za/70JmrxKlfCo2zDfbgCmzED6LsQUj.jpg?w=450&q=85",
+        imgSrc: "./images/capesweetred.png",
         instock: 8,
     },
     {
